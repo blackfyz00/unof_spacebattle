@@ -14,10 +14,26 @@ public class AngleTest
     }
 
     [Fact]
+    public void TestAdditionThrowsException()
+    {
+        Angle angl1 = null;
+        Angle angl2 = new Angle(12);
+        Assert.Throws<ArgumentNullException>(() => angl1 + angl2);
+    }
+
+    [Fact]
     public void TestComparingAngleWithNotAngleType()
     {
         Angle angl1 = new Angle(12);
         bool Equality = angl1.Equals(12);
+        Assert.False(Equality);
+    }
+
+    [Fact]
+    public void TestEqualsObjectNull()
+    {
+        Angle angl1 = new Angle(12);
+        bool Equality = angl1.Equals(null);
         Assert.False(Equality);
     }
 

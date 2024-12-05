@@ -45,6 +45,21 @@ public class AngleTest
         var angl2 = new Angle(-30);
         var angl3 = angl1 + angl2;
         Assert.Equal(angl3, new Angle(-20));
+    }
+    [Fact]
+    public void TestGetHashCode()
+    {
+        var angle1 = new Angle(54);
+        var angle2 = new Angle(54);
+        Assert.True(angle1.GetHashCode() == angle2.GetHashCode());
+    }
 
+    [Fact]
+    public void TestNewImplication()
+    {
+        var angle1 = new Angle(12);
+        angle1.A = 13;
+
+        Assert.Equal(13, angle1.A);
     }
 }
